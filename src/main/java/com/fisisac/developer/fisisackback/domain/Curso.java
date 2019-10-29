@@ -24,7 +24,7 @@ public class Curso {
 	private String numCiclo;
 	@Column(name = "numcreditaje")
 	private String numCreditaje;
-	@Column(name = "tipoCurso")
+	@Column(name = "tipocurso")
 	private String tipoCurso;
 	@Column(name = "planestudios")
 	private String planEstudios;

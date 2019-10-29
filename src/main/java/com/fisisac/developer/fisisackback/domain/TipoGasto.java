@@ -14,7 +14,6 @@ public class TipoGasto {
 	private int id_tipo_gasto;
 	@Column(name = "tipo_gasto_nombre")
 	private String tipo_gasto_nombre;
-}
 
 	public TipoGasto(){
 	}

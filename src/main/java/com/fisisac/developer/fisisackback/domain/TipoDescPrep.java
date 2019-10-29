@@ -14,7 +14,6 @@ public class TipoDescPrep {
 	private int id_tipo_desc_prep;
 	@Column(name = "tipo_desc_prep_nombre")
 	private String tipo_desc_prep_nombre;
-}
 
 	public TipoDescPrep(){
 	}

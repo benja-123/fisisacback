@@ -14,7 +14,7 @@ public class CategoriaEgreso {
 	private int id_cat_egreso;
 	@Column(name = "cat_egreso_nombre")
 	private String cat_egreso_nombre;
-}
+
 
 	public CategoriaEgreso(){
 	}

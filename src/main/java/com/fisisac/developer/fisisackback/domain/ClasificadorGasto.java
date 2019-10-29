@@ -24,7 +24,7 @@ public class ClasificadorGasto {
 	public ClasificadorGasto(){
 	}
 
-	public ClasificadorGasto(int id_clas_gasto, int id_cat_egreso, int tipo_gasto
+	public ClasificadorGasto(int id_clas_gasto, int id_cat_egreso, int tipo_gasto,
                 String clas_gasto_nombre, String clas_gasto_porcentaje){
 		this.id_clas_gasto = id_clas_gasto;
         this.id_cat_egreso = id_cat_egreso;
@@ -49,7 +49,7 @@ public class ClasificadorGasto {
 		this.id_cat_egreso = id_cat_egreso;
 	}
 
-	public int getTipoGasto(){
+	public Long getTipoGasto(){
 		return this.tipo_gasto;
 	}
 
