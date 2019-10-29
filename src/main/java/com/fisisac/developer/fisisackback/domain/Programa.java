@@ -14,7 +14,7 @@ public class Programa {
   @Id
   @Column(name = "id_programa")
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Short id;
+  private Long id;
   @Column(name = "nom_programa")
   private String nombrePrograma;
   @Column(name = "sigla_programa")
@@ -27,7 +27,7 @@ public class Programa {
   public Programa() {
   }
 
-  public Programa(Short id, String nombrePrograma, String siglaPrograma, Boolean vigenciaPrograma,
+  public Programa(Long id, String nombrePrograma, String siglaPrograma, Boolean vigenciaPrograma,
       Integer numeroPrioridad) {
     this.id = id;
     this.nombrePrograma = nombrePrograma;
@@ -36,11 +36,11 @@ public class Programa {
     this.numeroPrioridad = numeroPrioridad;
     }
 
-  public Short getId() {
+  public Long getId() {
     return this.id;
   }
 
-  public void setId(Short id) {
+  public void setId(Long id) {
     this.id = id;
   }
 
