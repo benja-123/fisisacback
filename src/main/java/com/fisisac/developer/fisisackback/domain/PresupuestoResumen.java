@@ -1,20 +1,25 @@
 package com.fisisac.developer.fisisackback.domain;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 @Entity(name = "presupuesto_resumen")
 public class PresupuestoResumen {
     @Id
     @Column(name = "id_prep_resumen")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    @Column(name = "id_presupuesto")
-    private int idpresupuesto;
-    @Column(name = "id_clas_gasto")
+	private int id;
+	@OneToOne(cascade = CascadeType.PERSIST)
+	@JoinColumn(name = "id_presupuesto")
+	private Presupuesto presupuesto;
+	
+	@Column(name = "id_clas_gasto")
     private int idclasgasto;
     @Column(name = "importe")
     private float importe;
