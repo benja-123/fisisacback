@@ -49,7 +49,7 @@ public class PresupuestoDetalle {
 	public PresupuestoDetalle(){
 	}
 
-	public PresupuestoDetalle(int id, int idpresupuesto, int idclasgasto, int idsemestre, int iddescprepdetalle, int idcurso, int idtipounidad, int idtipocantidad, int idprograma, String gradodocente, float pagoporunittiempo, float pagounitariosd, float precioreferencial, float costounit, float nrocantidad, float nro unidad, float total){
+	public PresupuestoDetalle(int id, int idpresupuesto, int idclasgasto, int idsemestre, int iddescprepdetalle, int idcurso, int idtipounidad, int idtipocantidad, int idprograma, String gradodocente, float pagoporunittiempo, float pagounitariosd, float precioreferencial, float costounit, float nrocantidad, float nrounidad, float total){
 		this.id = id;
 		this.idpresupuesto=idpresupuesto;
 		this.idclasgasto=idclasgasto;

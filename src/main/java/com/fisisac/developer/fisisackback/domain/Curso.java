@@ -1,10 +1,13 @@
 package com.fisisac.developer.fisisackback.domain;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.JoinColumn;
 
 @Entity(name = "curso")
 public class Curso {
@@ -14,8 +17,9 @@ public class Curso {
 	private  Long id;
 	@Column(name = "nom_curso")
 	private String nombreCurso;
-	@Column(name = "id_programa")
-	private long idPrograma;
+	@ManyToOne(cascade = CascadeType.PERSIST)
+	@JoinColumn(name = "id_programa")
+	private Programa programa;
 	@Column(name = "numciclo")
 	private String numCiclo;
 	@Column(name = "numcreditaje")
@@ -28,10 +32,10 @@ public class Curso {
 	public Curso(){
 	}
 
-	public Curso(Long id, String nombreCurso, Long idPrograma, String numCiclo, String numCreditaje, String tipoCurso, String planEstudios){
+	public Curso(Long id, String nombreCurso, Programa programa, String numCiclo, String numCreditaje, String tipoCurso, String planEstudios){
 		this.id = id;
 		this.nombreCurso = nombreCurso;
-		this.idPrograma = idPrograma;
+		this.programa = programa;
 		this.numCiclo = numCiclo;
 		this.numCreditaje = numCreditaje;
 		this.tipoCurso = tipoCurso;
@@ -54,12 +58,12 @@ public class Curso {
 		this.nombreCurso = nombreCurso;
 	}
 
-	public Long getIdPrograma(){
-		return this.idPrograma;
+	public Programa getIdPrograma(){
+		return this.programa;
 	}
 
-	public void setIdPrograma(Long idPrograma){
-		this.idPrograma = idPrograma;
+	public void setIdPrograma(Programa programa){
+		this.programa = programa;
 	}
 
 	public String getNumCiclo(){

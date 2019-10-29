@@ -22,11 +22,10 @@ public class DescripcionPresupuestoDetalle{
     public DescripcionPresupuestoDetalle(){
     }
 
-    public DescripcionPresupuestoDetalle(int id, int idtipodescprep, int descprepdetalledescripcion){
+    public DescripcionPresupuestoDetalle(int id, int idtipodescprep, String descprepdetalledescripcion){
                             this.id = id;
-                            this.idpresupuesto=idpresupuesto;
-                            this.idclasgasto=idclasgasto;
-                            this.importe=importe;
+                            this.idtipodescprep=idtipodescprep;
+                            this.descprepdetalledescripcion = descprepdetalledescripcion;
     }
 
 	public int getId() {

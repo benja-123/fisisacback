@@ -15,10 +15,10 @@ public class TipoCantidad {
 	@Column(name = "tipo_cantidad_nombre")
 	private String tipocantnombre;
 
-	public Curso(){
+	public TipoCantidad(){
 	}
 
-	public Curso(int id, String tipocantnombre){
+	public TipoCantidad(int id, String tipocantnombre){
 		this.id = id;
 		this.tipocantnombre = tipocantnombre;
 	}
