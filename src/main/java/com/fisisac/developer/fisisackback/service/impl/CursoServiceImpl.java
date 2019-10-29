@@ -1,7 +1,7 @@
 package com.fisisac.developer.fisisackback.service.impl;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,9 +16,9 @@ public class CursoServiceImpl implements CursoService {
   @Autowired
   CursoRepository cursoRepository;
 
-  public Set<Curso> getAllCursos() {
-    Set<Curso> setCursos = new HashSet<>();
-    cursoRepository.findAll().forEach(curso -> setCursos.add(curso));
+  public List<Curso> getAllCursosId( Long id) {
+    List<Curso> setCursos = new ArrayList<>();
+    cursoRepository.findAllByProgramaId(id).addAll(setCursos);
     return setCursos;
   }
 }

@@ -29,9 +29,9 @@ public class PresupuestoResumen {
     public PresupuestoResumen(){
     }
 
-    public PresupuestoResumen(int id, int idpresupuesto, int idclasgasto, float importe){
+    public PresupuestoResumen(int id, Presupuesto presupuesto, int idclasgasto, float importe){
                             this.id = id;
-                            this.idpresupuesto=idpresupuesto;
+                            this.presupuesto=presupuesto;
                             this.idclasgasto=idclasgasto;
                             this.importe=importe;
     }
@@ -43,12 +43,12 @@ public class PresupuestoResumen {
 		this.id = id;
 	}
 
-	public int getIdpresupuesto() {
-		return this.idpresupuesto;
+	public Presupuesto getIdpresupuesto() {
+		return this.presupuesto;
 	}
 
-	public void setIdpresupuesto(int idpresupuesto) {
-		this.idpresupuesto = idpresupuesto;
+	public void setPresupuesto(Presupuesto presupuesto) {
+		this.presupuesto = presupuesto;
 	}
 
 	public int getIdclasgasto() {

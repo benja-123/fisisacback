@@ -1,9 +1,9 @@
 package com.fisisac.developer.fisisackback.service;
 
-import java.util.Set;
+import java.util.List;
 
 import com.fisisac.developer.fisisackback.domain.Curso;
 
 public interface CursoService {
-  public Set<Curso> getAllCursos();
+  public List<Curso> getAllCursosId( Long id);
 }
