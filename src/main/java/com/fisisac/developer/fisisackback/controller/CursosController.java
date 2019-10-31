@@ -23,7 +23,7 @@ public class CursosController {
   CursoService cursoService;
 
   @GetMapping
-  public ResponseEntity<List<Curso>> getAllProgramas(@PathVariable("id") Long id) {    
+  public ResponseEntity<List<Curso>> getAllProgramas(@PathVariable(name = "id") Long id) {    
     List<Curso> setProgramas = cursoService.getAllCursosId(id);
     return new ResponseEntity<>(setProgramas, HttpStatus.OK);
   }

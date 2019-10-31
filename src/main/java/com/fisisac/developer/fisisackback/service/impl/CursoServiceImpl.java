@@ -18,7 +18,7 @@ public class CursoServiceImpl implements CursoService {
 
   public List<Curso> getAllCursosId( Long id) {
     List<Curso> setCursos = new ArrayList<>();
-    cursoRepository.findAllByProgramaId(id).addAll(setCursos);
+    cursoRepository.findAllCursoByProgramaId(id).forEach(curso -> setCursos.add(curso));
     return setCursos;
   }
 }
