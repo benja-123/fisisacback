@@ -1,6 +1,6 @@
 package com.fisisac.developer.fisisackback.controller;
 
-import java.util.Set;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -22,8 +22,8 @@ public class ProgramaController {
   ProgramaService programaService;
 
   @GetMapping
-  public ResponseEntity<Set<Programa>> getAllProgramas() {
-    Set<Programa> setProgramas = programaService.getAllProgramas();
+  public ResponseEntity<List<Programa>> getAllProgramas() {
+    List<Programa> setProgramas = programaService.getAllProgramas();
     return new ResponseEntity<>(setProgramas, HttpStatus.OK);
   }
 

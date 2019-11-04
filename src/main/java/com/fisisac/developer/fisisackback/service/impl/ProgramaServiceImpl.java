@@ -1,7 +1,7 @@
 package com.fisisac.developer.fisisackback.service.impl;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,8 +16,8 @@ public class ProgramaServiceImpl implements ProgramaService {
   @Autowired
   ProgramaRepository programaRepository;
 
-  public Set<Programa> getAllProgramas() {
-    Set<Programa> setProgramas = new HashSet<>();
+  public List<Programa> getAllProgramas() {
+    List<Programa> setProgramas = new ArrayList<>();
     programaRepository.findAll().forEach(programa -> setProgramas.add(programa));
     return setProgramas;
   }

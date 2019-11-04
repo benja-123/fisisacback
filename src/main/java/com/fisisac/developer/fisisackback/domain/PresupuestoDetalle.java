@@ -1,211 +1,195 @@
 package com.fisisac.developer.fisisackback.domain;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity(name = "presupuesto_detalle")
 public class PresupuestoDetalle {
-	@Id
-	@Column(name = "id_presupuesto_detalle")
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
-	@Column(name = "id_presupuesto")
-	private int idpresupuesto;
-	@Column(name = "id_clas_gasto")
-	private int idclasgasto;
-	@Column(name = "id_semestre")
-	private int idsemestre;
-	@Column(name = "id_desc_prep_detalle")
-	private int iddescprepdetalle;
-	@Column(name = "id_curso")
-	private int idcurso;
-	@Column(name = "id_tipo_unidad")
-	private int idtipounidad;
-	@Column(name = "id_tipo_cantidad")
-	private int idtipocantidad;
-	@Column(name = "id_programa")
-	private int idprograma;
-	@Column(name = "grado_docente")
-	private String gradodocente;
-	@Column(name = "pago_por_unit_tiempo")
-	private float pagoporunittiempo;
-	@Column(name = "pago_unitario_sd")
-	private float pagounitariosd;
-	@Column(name = "precio_referencial")
-	private float precioreferencial;
-	@Column(name = "costo_unit")
-	private float costounit;
-	@Column(name = "nro_cantidad")
-	private float nrocantidad;
-	@Column(name = "nro_unidad")
-	private float nrounidad;
-	@Column(name = "total")
-	private float total;
 
+    @Id
+    @Column(name = "id_pdetalle")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "id_presupuesto")
+    private Presupuesto presupuesto;
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "id_semestre")
+    private Semestre semestre;
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "id_curso")
+    private Curso curso;
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "id_programa")
+    private Programa programa;
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "id_cgastodet")
+    private ClasificadorGastoDet cGastoDet;
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "id_tunidad")
+    private TipoUnidad tipounidad;
+    @Column(name = "grado_docente")
+    private String gradodocente;
+    @Column(name = "pago_utiempo")
+    private float pagoporunittiempo;
+    @Column(name = "pago_unitario_sd")
+    private float pagounitariosd;
+    @Column(name = "precio_referencial")
+    private float precioreferencial;
+    @Column(name = "costo_unit")
+    private float costounit;
+    @Column(name = "n_cantidad")
+    private float nrocantidad;
+    @Column(name = "n_unidad")
+    private float nrounidad;
+    @Column(name = "total")
+    private float total;
 
-	public PresupuestoDetalle(){
-	}
+    public PresupuestoDetalle() {
+    }
 
-	public PresupuestoDetalle(int id, int idpresupuesto, int idclasgasto, int idsemestre, int iddescprepdetalle, int idcurso, int idtipounidad, int idtipocantidad, int idprograma, String gradodocente, float pagoporunittiempo, float pagounitariosd, float precioreferencial, float costounit, float nrocantidad, float nrounidad, float total){
-		this.id = id;
-		this.idpresupuesto=idpresupuesto;
-		this.idclasgasto=idclasgasto;
-		this.idsemestre=idsemestre;
-		this.iddescprepdetalle=iddescprepdetalle;
-		this.idcurso=idcurso;
-		this.idtipounidad=idtipounidad;
-		this.idtipocantidad=idtipocantidad;
-		this.idprograma=idprograma;
-		this.gradodocente=gradodocente;
-		this.pagoporunittiempo=pagoporunittiempo;
-		this.pagounitariosd=pagounitariosd;
-		this.precioreferencial=precioreferencial;
-		this.costounit=costounit;
-		this.nrocantidad=nrocantidad;
-		this.nrounidad=nrounidad;
-		this.total=total;
-	}
-	public int getId() {
-		return this.id;
-	}
+    public PresupuestoDetalle(int id, Presupuesto presupuesto, Semestre semestre, Curso curso, Programa programa, ClasificadorGastoDet cGastoDet, TipoUnidad tipounidad, String gradodocente, float pagoporunittiempo, float pagounitariosd, float precioreferencial, float costounit, float nrocantidad, float nrounidad, float total) {
+        this.id = id;
+        this.presupuesto = presupuesto;
+        this.semestre = semestre;
+        this.curso = curso;
+        this.programa = programa;
+        this.cGastoDet = cGastoDet;
+        this.tipounidad = tipounidad;
+        this.gradodocente = gradodocente;
+        this.pagoporunittiempo = pagoporunittiempo;
+        this.pagounitariosd = pagounitariosd;
+        this.precioreferencial = precioreferencial;
+        this.costounit = costounit;
+        this.nrocantidad = nrocantidad;
+        this.nrounidad = nrounidad;
+        this.total = total;
+    }
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public int getId() {
+        return id;
+    }
 
-	public int getIdpresupuesto() {
-		return this.idpresupuesto;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public void setIdpresupuesto(int idpresupuesto) {
-		this.idpresupuesto = idpresupuesto;
-	}
+    public Presupuesto getPresupuesto() {
+        return presupuesto;
+    }
 
-	public int getIdclasgasto() {
-		return this.idclasgasto;
-	}
+    public void setPresupuesto(Presupuesto presupuesto) {
+        this.presupuesto = presupuesto;
+    }
 
-	public void setIdclasgasto(int idclasgasto) {
-		this.idclasgasto = idclasgasto;
-	}
+    public Semestre getSemestre() {
+        return semestre;
+    }
 
-	public int getIdsemestre() {
-		return this.idsemestre;
-	}
+    public void setSemestre(Semestre semestre) {
+        this.semestre = semestre;
+    }
 
-	public void setIdsemestre(int idsemestre) {
-		this.idsemestre = idsemestre;
-	}
+    public Curso getCurso() {
+        return curso;
+    }
 
-	public int getIddescprepdetalle() {
-		return this.iddescprepdetalle;
-	}
+    public void setCurso(Curso curso) {
+        this.curso = curso;
+    }
 
-	public void setIddescprepdetalle(int iddescprepdetalle) {
-		this.iddescprepdetalle = iddescprepdetalle;
-	}
+    public Programa getPrograma() {
+        return programa;
+    }
 
-	public int getIdcurso() {
-		return this.idcurso;
-	}
+    public void setPrograma(Programa programa) {
+        this.programa = programa;
+    }
 
-	public void setIdcurso(int idcurso) {
-		this.idcurso = idcurso;
-	}
+    public ClasificadorGastoDet getcGastoDet() {
+        return cGastoDet;
+    }
 
-	public int getIdtipounidad() {
-		return this.idtipounidad;
-	}
+    public void setcGastoDet(ClasificadorGastoDet cGastoDet) {
+        this.cGastoDet = cGastoDet;
+    }
 
-	public void setIdtipounidad(int idtipounidad) {
-		this.idtipounidad = idtipounidad;
-	}
+    public TipoUnidad getTipounidad() {
+        return tipounidad;
+    }
 
-	public int getIdtipocantidad() {
-		return this.idtipocantidad;
-	}
+    public void setTipounidad(TipoUnidad tipounidad) {
+        this.tipounidad = tipounidad;
+    }
 
-	public void setIdtipocantidad(int idtipocantidad) {
-		this.idtipocantidad = idtipocantidad;
-	}
+    public String getGradodocente() {
+        return gradodocente;
+    }
 
-	public int getIdprograma() {
-		return this.idprograma;
-	}
+    public void setGradodocente(String gradodocente) {
+        this.gradodocente = gradodocente;
+    }
 
-	public void setIdprograma(int idprograma) {
-		this.idprograma = idprograma;
-	}
+    public float getPagoporunittiempo() {
+        return pagoporunittiempo;
+    }
 
-	public String getGradodocente() {
-		return this.gradodocente;
-	}
+    public void setPagoporunittiempo(float pagoporunittiempo) {
+        this.pagoporunittiempo = pagoporunittiempo;
+    }
 
-	public void setGradodocente(String gradodocente) {
-		this.gradodocente = gradodocente;
-	}
+    public float getPagounitariosd() {
+        return pagounitariosd;
+    }
 
-	public float getPagoporunittiempo() {
-		return this.pagoporunittiempo;
-	}
+    public void setPagounitariosd(float pagounitariosd) {
+        this.pagounitariosd = pagounitariosd;
+    }
 
-	public void setPagoporunittiempo(float pagoporunittiempo) {
-		this.pagoporunittiempo = pagoporunittiempo;
-	}
+    public float getPrecioreferencial() {
+        return precioreferencial;
+    }
 
-	public float getPagounitariosd() {
-		return this.pagounitariosd;
-	}
+    public void setPrecioreferencial(float precioreferencial) {
+        this.precioreferencial = precioreferencial;
+    }
 
-	public void setPagounitariosd(float pagounitariosd) {
-		this.pagounitariosd = pagounitariosd;
-	}
+    public float getCostounit() {
+        return costounit;
+    }
 
-	public float getPrecioreferencial() {
-		return this.precioreferencial;
-	}
+    public void setCostounit(float costounit) {
+        this.costounit = costounit;
+    }
 
-	public void setPrecioreferencial(float precioreferencial) {
-		this.precioreferencial = precioreferencial;
-	}
+    public float getNrocantidad() {
+        return nrocantidad;
+    }
 
-	public float getCostounit() {
-		return this.costounit;
-	}
+    public void setNrocantidad(float nrocantidad) {
+        this.nrocantidad = nrocantidad;
+    }
 
-	public void setCostounit(float costounit) {
-		this.costounit = costounit;
-	}
+    public float getNrounidad() {
+        return nrounidad;
+    }
 
-	public float getNrocantidad() {
-		return this.nrocantidad;
-	}
+    public void setNrounidad(float nrounidad) {
+        this.nrounidad = nrounidad;
+    }
 
-	public void setNrocantidad(float nrocantidad) {
-		this.nrocantidad = nrocantidad;
-	}
+    public float getTotal() {
+        return total;
+    }
 
-
-	public float getNrounidad() {
-		return this.nrounidad;
-	}
-
-	public void setNrounidad(float nrounidad) {
-		this.nrounidad = nrounidad;
-	}
-
-	public float getTotal() {
-		return this.total;
-	}
-
-	public void setTotal(float total) {
-		this.total = total;
-	}
-
-
-
+    public void setTotal(float total) {
+        this.total = total;
+    }
 
 }

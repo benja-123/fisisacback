@@ -1,9 +1,8 @@
 package com.fisisac.developer.fisisackback.service;
 
-import java.util.Set;
-
+import java.util.List;
 import com.fisisac.developer.fisisackback.domain.Programa;
 
 public interface ProgramaService {
-  public Set<Programa> getAllProgramas();
+  public List<Programa> getAllProgramas();
 }

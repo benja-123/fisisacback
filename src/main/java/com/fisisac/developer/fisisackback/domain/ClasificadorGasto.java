@@ -1,76 +1,92 @@
 package com.fisisac.developer.fisisackback.domain;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity(name = "clasificador_gasto")
 public class ClasificadorGasto {
-	@Id
-	@Column(name = "id_clas_gasto")
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private  int id_clas_gasto;
-	@Column(name = "id_cat_egreso")
-	private int id_cat_egreso;
-	@Column(name = "tipo_gasto")
-	private long tipo_gasto;
-	@Column(name = "clas_gasto_nombre")
-	private String clas_gasto_nombre;
-	@Column(name = "clas_gasto_porcentaje")
-	private String clas_gasto_porcentaje;
 
-	public ClasificadorGasto(){
-	}
+    @Id
+    @Column(name = "id_cgasto")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int idCgasto;
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "id_tegreso")
+    private TipoEgreso tegreso;
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "id_ccg")
+    private CategoriaClasificadorGasto ccg;
+    @Column(name = "cgasto_codigo")
+    private String cgasto_codigo;
+    @Column(name = "cgasto_desc")
+    private String cgastoDescripcion;
+    @Column(name = "cgasto_porc")
+    private String cgastoPorcentaje;
 
-	public ClasificadorGasto(int id_clas_gasto, int id_cat_egreso, int tipo_gasto,
-                String clas_gasto_nombre, String clas_gasto_porcentaje){
-		this.id_clas_gasto = id_clas_gasto;
-        this.id_cat_egreso = id_cat_egreso;
-        this.tipo_gasto = tipo_gasto;
-        this.clas_gasto_nombre = clas_gasto_nombre;
-        this.clas_gasto_porcentaje = clas_gasto_porcentaje;
-	}
+    public ClasificadorGasto() {
+    }
 
-	public int getIdClasGasto(){
-		return this.id_clas_gasto;
-	}
+    public ClasificadorGasto(int idCgasto, TipoEgreso tegreso, CategoriaClasificadorGasto ccg, String cgasto_codigo, String cgastoDescripcion, String cgastoPorcentaje) {
+        this.idCgasto = idCgasto;
+        this.tegreso = tegreso;
+        this.ccg = ccg;
+        this.cgasto_codigo = cgasto_codigo;
+        this.cgastoDescripcion = cgastoDescripcion;
+        this.cgastoPorcentaje = cgastoPorcentaje;
+    }
 
-	public void setIdClasGasto(int id_clas_gasto){
-		this.id_clas_gasto = id_clas_gasto;
-	}
+    public int getIdCgasto() {
+        return idCgasto;
+    }
 
-	public int getIdCatEgreso(){
-		return this.id_cat_egreso;
-	}
+    public void setIdCgasto(int idCgasto) {
+        this.idCgasto = idCgasto;
+    }
 
-	public void setIdCatEgreso(int id_cat_egreso){
-		this.id_cat_egreso = id_cat_egreso;
-	}
+    public TipoEgreso getTegreso() {
+        return tegreso;
+    }
 
-	public Long getTipoGasto(){
-		return this.tipo_gasto;
-	}
+    public void setTegreso(TipoEgreso tegreso) {
+        this.tegreso = tegreso;
+    }
 
-	public void setTipoGasto(int tipo_gasto){
-		this.tipo_gasto = tipo_gasto;
-	}
+    public CategoriaClasificadorGasto getCcg() {
+        return ccg;
+    }
 
-	public String getClasGastoNombre(){
-		return this.clas_gasto_nombre;
-	}
+    public void setCcg(CategoriaClasificadorGasto ccg) {
+        this.ccg = ccg;
+    }
 
-	public void setClasGastoNombre(String clas_gasto_nombre){
-		this.clas_gasto_nombre = clas_gasto_nombre;
-	}
+    public String getCgasto_codigo() {
+        return cgasto_codigo;
+    }
 
-	public String getClasGastoPorcentaje(){
-		return this.clas_gasto_porcentaje;
-	}
+    public void setCgasto_codigo(String cgasto_codigo) {
+        this.cgasto_codigo = cgasto_codigo;
+    }
 
-	public void setClasGastoPorcentaje(String clas_gasto_porcentaje){
-		this.clas_gasto_porcentaje = clas_gasto_porcentaje;
-	}
+    public String getCgastoDescripcion() {
+        return cgastoDescripcion;
+    }
+
+    public void setCgastoDescripcion(String cgastoDescripcion) {
+        this.cgastoDescripcion = cgastoDescripcion;
+    }
+
+    public String getCgastoPorcentaje() {
+        return cgastoPorcentaje;
+    }
+
+    public void setCgastoPorcentaje(String cgastoPorcentaje) {
+        this.cgastoPorcentaje = cgastoPorcentaje;
+    }
 
 }

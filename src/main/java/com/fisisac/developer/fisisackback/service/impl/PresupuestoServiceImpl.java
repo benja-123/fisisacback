@@ -16,9 +16,12 @@ public class PresupuestoServiceImpl implements PresupuestoService{
     @Autowired
     PresupuestoRepository presupuestoRepository;
 
-    public Set<Presupuesto> getAllPresupuestos(){
-        Set<Presupuesto> setPresupuestos = new HashSet<>();
-        presupuestoRepository.findAll().forEach(presupuesto -> setPresupuestos.add(presupuesto));
-        return setPresupuestos;
+    public boolean savePresupuesto(Presupuesto presupuesto){
+        try {
+            presupuestoRepository.save(presupuesto);
+        } catch (Exception e) {
+            return false;
+        }
+        return true;
     }
 }
