@@ -15,11 +15,11 @@ public class Presupuesto{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column(name = "presupuesto_anio")
-    private float año;
+    private int anio;
     @Column(name = "presupuesto_nconsejo")
     private String numconfac;
     @Column(name = "presupuesto_fconsejo")
-    private Date fechaconfac;
+    private Date fechacon;
     @Column(name = "presupuesto_numrd")
     private String numrd;
     @Column(name = "presupuesto_fechard")
@@ -32,11 +32,11 @@ public class Presupuesto{
     public Presupuesto(){
     }
 
-    public Presupuesto(int id, float año, String numconfac, Date fechaconfac, String numrd, 
+    public Presupuesto(int id, int anio, String numconfac, Date fechacon, String numrd, 
                         Date rdfecha, String numrr, Date rrfecha){
                             this.id = id;
-                            this.año = año;
-                            this.fechaconfac = fechaconfac;
+                            this.anio = anio;
+                            this.fechacon = fechacon;
                             this.numconfac = numconfac;
                             this.numrd = numrd;
                             this.rdfecha = rdfecha;
@@ -52,12 +52,12 @@ public class Presupuesto{
         this.id = id;
     }
 
-    public float getAño() {
-        return año;
+    public int getAnio() {
+        return anio;
     }
 
-    public void setAño(float año) {
-        this.año = año;
+    public void setAnio(int anio) {
+        this.anio = anio;
     }
 
     public String getNumconfac() {
@@ -68,12 +68,12 @@ public class Presupuesto{
         this.numconfac = numconfac;
     }
 
-    public Date getFecha() {
-        return this.fechaconfac;
+    public Date getFechaCon() {
+        return this.fechacon;
     }
 
-    public void setFecha(Date fechaconfac) {
-        this.fechaconfac = fechaconfac;
+    public void setFechaCon(Date fechacon) {
+        this.fechacon = fechacon;
     }
 
     public String getNumrd() {

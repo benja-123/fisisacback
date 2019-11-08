@@ -19,11 +19,10 @@ public class PresupuestoController{
     @Autowired
     PresupuestoService presupuestoService;
 
-    @PostMapping("/save")
-    public Presupuesto savePresupuesto(@RequestBody Presupuesto presupuesto) {
-        
+    @PostMapping
+    public void savePresupuesto(@RequestBody Presupuesto presupuesto) {
+
         presupuestoService.savePresupuesto(presupuesto);
-        return presupuesto;
     }
     
 }

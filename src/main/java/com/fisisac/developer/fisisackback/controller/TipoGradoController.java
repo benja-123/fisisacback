@@ -2,6 +2,9 @@ package com.fisisac.developer.fisisackback.controller;
 
 import java.util.List;
 
+import com.fisisac.developer.fisisackback.domain.TipoGrado;
+import com.fisisac.developer.fisisackback.service.TipoGradoService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,21 +13,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.fisisac.developer.fisisackback.domain.Semestre;
-import com.fisisac.developer.fisisackback.service.SemestreService;
-
 @RestController
 @CrossOrigin
-@RequestMapping("/semestres")
-public class SemestreController {
+@RequestMapping("/tipogrado")
+public class TipoGradoController{
 
-  @Autowired
-  SemestreService semestreService;
+    @Autowired
+    TipoGradoService tipoGradoService;
 
-  @GetMapping
-  public ResponseEntity<List<Semestre>> getAllProgramas() {
-    List<Semestre> setSemestre = semestreService.getAllProgramas();
-    return new ResponseEntity<>(setSemestre, HttpStatus.OK);
-  }
-
+    @GetMapping
+    public ResponseEntity<List<TipoGrado>> getAllTipoGrado(){
+        List<TipoGrado> listaTipoGrado = tipoGradoService.getAllTipoGrado();
+        return new ResponseEntity<>(listaTipoGrado, HttpStatus.OK);
+    }
 }
