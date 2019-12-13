@@ -15,7 +15,7 @@ public class Presupuesto{
     @Column(name = "id_presupuesto")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
-    private int id;
+    private Integer id;
     @Column(name = "presupuesto_anio")
     private int anio;
     @Column(name = "presupuesto_nconsejo")
