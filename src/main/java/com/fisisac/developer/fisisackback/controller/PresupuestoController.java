@@ -25,7 +25,7 @@ public class PresupuestoController{
     public ResponseEntity<String> savePresupuesto(@RequestBody Presupuesto presupuesto) {
 
         presupuestoService.savePresupuesto(presupuesto);
-        return new ResponseEntity<>("exito", HttpStatus.OK);
+        return new ResponseEntity<>("axito", HttpStatus.OK);
     }
     
 }
