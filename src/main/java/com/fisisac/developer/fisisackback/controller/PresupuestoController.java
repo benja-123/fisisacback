@@ -22,10 +22,10 @@ public class PresupuestoController{
     PresupuestoService presupuestoService;
 
     @PostMapping("/save")
-    public void savePresupuesto(@RequestBody Presupuesto presupuesto) {
+    public String savePresupuesto(@RequestBody Presupuesto presupuesto) {
 
         presupuestoService.savePresupuesto(presupuesto);
-        //return new ResponseEntity<>("axito", HttpStatus.OK);
+        return "ixito";
     }
     
 }
