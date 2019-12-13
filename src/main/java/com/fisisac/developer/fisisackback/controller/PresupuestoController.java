@@ -22,10 +22,10 @@ public class PresupuestoController{
     PresupuestoService presupuestoService;
 
     @PostMapping("/save")
-    public String savePresupuesto(@RequestBody Presupuesto presupuesto) {
+    public Presupuesto savePresupuesto(@RequestBody Presupuesto presupuesto) {
 
-        presupuestoService.savePresupuesto(presupuesto);
-        return "ixito";
+       Presupuesto presupuesto2 = presupuestoService.savePresupuesto(presupuesto);
+        return presupuesto2;
     }
     
 }

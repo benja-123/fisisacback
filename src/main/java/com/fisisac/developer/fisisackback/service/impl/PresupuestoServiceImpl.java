@@ -13,12 +13,9 @@ public class PresupuestoServiceImpl implements PresupuestoService{
     @Autowired
     PresupuestoRepository presupuestoRepository;
 
-    public boolean savePresupuesto(Presupuesto presupuesto){
-        try {
-            presupuestoRepository.save(presupuesto);
-        } catch (Exception e) {
-            return false;
-        }
-        return true;
+    public Presupuesto savePresupuesto(Presupuesto presupuesto){
+       
+            return presupuestoRepository.save(presupuesto);
+
     }
 }
