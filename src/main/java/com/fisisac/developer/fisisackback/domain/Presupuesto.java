@@ -7,12 +7,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity(name = "presupuesto")
 public class Presupuesto{
     @Id
     @Column(name = "id_presupuesto")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private int id;
     @Column(name = "presupuesto_anio")
     private int anio;
