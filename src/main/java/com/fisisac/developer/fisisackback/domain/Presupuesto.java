@@ -46,7 +46,7 @@ public class Presupuesto{
                             this.rrfecha = rrfecha;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
