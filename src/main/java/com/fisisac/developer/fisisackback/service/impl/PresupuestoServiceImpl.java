@@ -25,10 +25,4 @@ public class PresupuestoServiceImpl implements PresupuestoService{
         presupuestoRepository.findAll().forEach(presupuesto -> presupuestos.add(presupuesto));
         return presupuestos;
     }
-
-    public Presupuesto getPresupuestoByNConsejo(String nconsejo){
-        Presupuesto presupuesto;
-        presupuesto = presupuestoRepository.findPresupuestoByPresupuestoNConsejo(nconsejo);
-        return presupuesto;
-    }
 }
